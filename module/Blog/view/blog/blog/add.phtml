@@ -1,0 +1,35 @@
+<?php
+
+?>
+<h3>ADD</h3>
+<?php
+	$title = $form->get('title');
+	$title->setAttribute('class','form-control');
+
+	$content = $form->get('content');
+	$content->setAttribute('class','form-control');
+
+	$submit = $form->get('submit');
+	$submit->setAttribute('class','btn btn-primary');
+
+	$form->setAttribute('action',$this->url('post', ['action'=>'add']));
+	$form->prepare();
+
+	echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+	<?php echo $this->formLabel($title); ?>
+	<?php echo $this->formElement($title); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $this->formLabel($content); ?>
+	<?php echo $this->formElement($content); ?>
+</div>
+
+<?php
+ echo $this->formSubmit($submit);
+ echo $this->formHidden($form->get('id'));
+ echo $this->form()->closeTag(); 
+
+?>

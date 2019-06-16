@@ -1,0 +1,28 @@
+<?php 
+$this->headTitle('Blog');
+?>
+<h3>Blog Index</h3>
+<p>
+	<a href="<?php echo $this->url('post', ['action'=>'add']); ?>">
+		New Post
+	</a>
+</p>
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Action</th>
+	</tr>
+		<?php foreach($posts as $post):?>
+			<tr>
+				<td><?php echo  $this->escapeHtml($post->title); ?></td>
+				<td>
+					<a href="<?php echo  $this->url('post', ['action'=>'edit','id'=>$post->id]);?>">
+						Edit
+					</a>
+					<a href="<?php echo  $this->url('post', ['action'=>'delete','id'=>$post->id]);?>">
+						Delete
+					</a>
+				</td>
+			</tr>
+		<?php endforeach;?>
+</table>
